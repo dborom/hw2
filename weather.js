@@ -16,6 +16,22 @@ let link = document.getElementById("get_forecast")
     navigator.geolocation.getCurrentPosition(myLocation);
 });
 
+// Retrieves weather data for Chicago
+// let myLocation = function(locationData){
+//   console.info(locationData)
+//   let openweathermap_api_url = 'https://api.openweathermap.org/data/2.5/weather?'
+//   openweathermap_api_url += 'lat=' + '41.8781'
+//   openweathermap_api_url += '&lon=' + '-87.6298'
+//   openweathermap_api_url +='&appid=4ce6f502d38ddae567bf1702b05e168c&units=imperial'
+//   // Get weather data
+//   fetch(openweathermap_api_url).then(convertToJSON).then(updateWeather).catch(displayError);
+// };
+//
+// let convertToJSON = function(response) {
+//       return response.json();
+// }
+
+
 // Retrieves city based on long/lat
 let myLocation = function(locationData) {
   console.info(locationData)
@@ -42,7 +58,7 @@ let updateWeather = function(weatherData) {
   //Pick out temp
   //Display temp in HTML document
   temp = weatherData.main.temp;
-  document.getElementById("forecast").innerHTML = 'It is ' + temp + ' degrees outside.'
+  document.getElementById("forecast").innerHTML = 'It is ' + temp.toFixed(0) + ' degrees outside.'
   //Pick out forecast image
   //Display image
   icon = weatherData.weather[0].icon
